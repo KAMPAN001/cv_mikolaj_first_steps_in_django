@@ -1,12 +1,22 @@
+{% extends "base/base.html" %}
+{% block title %}  Post list  {% endblock %}
+{% block content %}
+
 <h1>Post list</h1>
+<ul>
+    {% for object in object_list_posts_posts %}
+    <li>
 
-{% for object in object_list_posts_posts %}
-<a href="{{object.get_absolute_url}}">
-    {{object.title}}
+        <a href="{{object.get_absolute_url}}">
+          {{object.title|capfirst}}
 
-</a>
+        </a>
 
-{% endfor%}
+        { {object.body|linebreaks|truncatewords:25 } }
+
+    </li>
+    {% endfor%}
+</ul>
 
 <div class="pagination">
     <span class="step-links">
@@ -25,3 +35,5 @@
         {% endif %}
     </span>
 </div>
+
+{% endblock %}

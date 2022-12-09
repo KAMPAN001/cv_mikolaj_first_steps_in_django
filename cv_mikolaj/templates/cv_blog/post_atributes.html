@@ -1,3 +1,7 @@
+{% extends "base/base.html" %}
+{% block title %} {{ object.title }} {% endblock %}
+{% block content %}
+
 <h1>Post atributes</h1>
 
 {{object.title}}
@@ -9,3 +13,4 @@
 {{object.created_date}}
 {{object.update_date}}
 {{object.publish_date}}
+{% endblock %}
